@@ -19,8 +19,11 @@ from unet import UNet
 from utils.data_loading import BasicDataset, CarvanaDataset
 from utils.dice_score import dice_loss
 
-dir_img = Path('./data/imgs/')
-dir_mask = Path('./data/masks/')
+# dir_img = Path('./data/imgs/')
+# dir_mask = Path('./data/masks/')
+#注释掉原来的地址
+dir_img = Path('../Dataset/TrainDataset/Image/')
+dir_mask = Path('../Dataset/TrainDataset/GT/')
 dir_checkpoint = Path('./checkpoints/')
 
 
@@ -33,7 +36,7 @@ def train_model(
         val_percent: float = 0.1,
         save_checkpoint: bool = True,
         img_scale: float = 0.5,
-        amp: bool = False,
+        amp: bool = True,
         weight_decay: float = 1e-8,
         momentum: float = 0.999,
         gradient_clipping: float = 1.0,
